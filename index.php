@@ -2,38 +2,26 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
+//cria um item
+$item = new App\Item('Cadeira', 200);
 
-$carrinho = new App\CarrinhoCompra();
+//cria um carrinho de compras
+$cart = new App\CarrinhoCompra();
 
-$carrinho->addItens('Notebook', 1500);
-$carrinho->addItens('Mouse', 100);
-$carrinho->addItens('Teclado', 200);
+//adiciona o item ao carrinho
+$cart->getItens()->addItem($item);
 
-echo "Itens: ".PHP_EOL;
-echo $carrinho->debug($carrinho->showItens()); 
+//cria um pedido
+$order = new App\Pedido($cart);
 
-echo "Total: ".PHP_EOL; 
-echo $carrinho->debug($carrinho->getTotal());
+//remove o item do carrinho
+$order->getCart()->removeItem($item);
 
-echo "Status: ".PHP_EOL;
-echo $carrinho->debug($carrinho->getStatus());
+//se o pedido foi confirmado, envia um email
+if($order->confirmOrder()) {
+    $mail = new App\Mail("joaquim.lira@teste.com.br", "Pedido confirmado", "Seu pedido foi confirmado");
 
-$carrinho->removeItens('Mouse');
-$carrinho->removeItens('Notebook');
-//$carrinho->removeItens('Teclado');
-
-echo "Itens: ".PHP_EOL;
-echo $carrinho->debug($carrinho->showItens());
-
-try{
-    $carrinho->confirmOrder();
-} catch(\Exception $e){
-    echo "Erro: ".PHP_EOL;
-    echo $e->getMessage();
+    $mail->send();
+} else {
+    echo "Pedido não confirmado";
 }
-
-$carrinho->dispatchEmail();
-
-echo "Status: ".PHP_EOL;
-echo $carrinho->debug($carrinho->getStatus());
-
