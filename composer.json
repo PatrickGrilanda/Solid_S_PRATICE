@@ -1,0 +1,15 @@
+{
+    "name": "patrick/solid_s_pratice",
+    "description": "Treinamento solid, dedicado a letra S",
+    "autoload": {
+        "psr-4": {
+            "Patrick\\SolidSPratice\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Patrick Grilanda"
+        }
+    ],
+    "require": {}
+}
