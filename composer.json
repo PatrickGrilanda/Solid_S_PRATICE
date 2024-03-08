@@ -3,7 +3,7 @@
     "description": "Treinamento solid, dedicado a letra S",
     "autoload": {
         "psr-4": {
-            "Patrick\\SolidSPratice\\": "src/"
+            "App\\": "src/"
         }
     },
     "authors": [
