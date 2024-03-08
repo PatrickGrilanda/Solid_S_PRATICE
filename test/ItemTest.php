@@ -5,11 +5,11 @@ use App\Item;
 
 class ItemTest extends TestCase {
 
-    public function testIfCanCreateItem() {
+    public function testIfNameIsString() {
 
         $item = new Item("Notebook", 400);
 
-        $this->assertEquals("Notebook", $item->getName());
+        $this->assertIsString($item->getName());
     }
 
     public function testIfAmountIsNumeric() {

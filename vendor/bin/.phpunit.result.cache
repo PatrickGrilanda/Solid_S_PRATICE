@@ -1,1 +1,1 @@
-{"version":1,"defects":{"itemTest::testIfWorks":7,"ItemTest::testIfCanCreateItem":8,"ItemTest::testIfAmountIsNumeric":8},"times":{"itemTest::testIfWorks":0.005,"ItemTest::testIfCanCreateItem":0.002,"ItemTest::testIfAmountIsNumeric":0}}
+{"version":1,"defects":{"itemTest::testIfWorks":7,"ItemTest::testIfCanCreateItem":8,"ItemTest::testIfAmountIsNumeric":8},"times":{"itemTest::testIfWorks":0.005,"ItemTest::testIfCanCreateItem":0.002,"ItemTest::testIfAmountIsNumeric":0,"ItemTest::testIfNameIsString":0.002}}
